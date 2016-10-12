@@ -32,13 +32,6 @@ user_pref("geo.enabled", false);
 user_pref("media.gmp-provider.enabled", false);
 user_pref("media.gmp-manager.url", "");
 
-user_pref("network.proxy.http", "proxy");
-user_pref("network.proxy.http_port", 8080);
-user_pref("network.proxy.share_proxy_settings", true);
-user_pref("network.proxy.ssl", "proxy");
-user_pref("network.proxy.ssl_port", 8080);
-user_pref("network.proxy.type", 1);
-
 user_pref("privacy.trackingprotection.enabled", false);
 user_pref("privacy.trackingprotection.introURL", "");
 user_pref("privacy.trackingprotection.pbmode.enabled", false);
