@@ -9,6 +9,12 @@ cd /home/browser/ffprofile
 sudo chown browser:browser /home/browser/ffprofile/*
 chmod 644 /home/browser/ffprofile/*
 
+if [[ -n "$PROXY_HOST" ]]; then
+    sed -i s/'$PROXY_HOST'/$PROXY_HOST/g ~/proxy.js
+    sed -i s/'$PROXY_PORT'/$PROXY_PORT/g ~/proxy.js
+    cat ~/proxy.js >> ~/ffprofile/user.js
+fi
+
 if [[ -n "$PROXY_GET_CA" ]]; then
     curl -x "$PROXY_HOST:$PROXY_PORT"  "$PROXY_GET_CA" > /tmp/proxy-ca.pem
 

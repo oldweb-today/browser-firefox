@@ -13,14 +13,15 @@ RUN wget https://download-installer.cdn.mozilla.net/pub/firefox/releases/$FF_VER
 RUN sudo mv ./firefox /opt/firefox
 
 USER browser
-
-#WORKDIR /home/browser/ffprofile
+WORKDIR /home/browser
 
 COPY ./ffprofile/. /home/browser/ffprofile/
 
 COPY jwmrc /home/browser/.jwmrc
 
 COPY run.sh /app/run.sh
+
+COPY proxy.js /home/browser/proxy.js
 
 RUN sudo chmod a+x /app/run.sh
 
