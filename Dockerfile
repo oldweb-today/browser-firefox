@@ -27,7 +27,7 @@ RUN sudo chmod a+x /app/run.sh
 
 CMD /app/entry_point.sh /app/run.sh
 
-LABEL wr.browser="ff" \
+LABEL wr.name="Firefox" \
       wr.version="49" \
       wr.os="lin" \
       wr.release="2016-09-23" \
