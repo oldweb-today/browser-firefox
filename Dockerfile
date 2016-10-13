@@ -29,7 +29,7 @@ CMD /app/entry_point.sh /app/run.sh
 
 LABEL wr.name="Firefox" \
       wr.version="49" \
-      wr.os="lin" \
+      wr.os="linux" \
       wr.release="2016-09-23" \
       wr.about="https://en.wikipedia.org/wiki/Firefox" \
       wr.caps.flash="1" \
