@@ -1,7 +1,7 @@
 FROM webrecorder/base-browser
 
 RUN apt-get update && apt-get install -y \
-    libgtk-3-0 libasound2 libdbus-glib-1-2 libnss3-tools jwm \
+    libgtk-3-0 libasound2 libdbus-glib-1-2 libnss3-tools \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /download
@@ -12,18 +12,21 @@ RUN wget https://download-installer.cdn.mozilla.net/pub/firefox/releases/$FF_VER
     tar xvf firefox-$FF_VERSION.tar.bz2
 RUN sudo mv ./firefox /opt/firefox
 
+ADD flash.list /etc/apt/sources.list.d/flash.list
+RUN sudo apt-get update && sudo apt-get install -qqy adobe-flashplugin
+
 USER browser
 WORKDIR /home/browser
 
 COPY ./ffprofile/. /home/browser/ffprofile/
-
-COPY jwmrc /home/browser/.jwmrc
 
 COPY run.sh /app/run.sh
 
 COPY proxy.js /home/browser/proxy.js
 
 RUN sudo chmod a+x /app/run.sh
+
+#RUN sudo ln -s /etc/fonts/conf.avail/10-autohint.conf /etc/fonts/conf.d/
 
 CMD /app/entry_point.sh /app/run.sh
 

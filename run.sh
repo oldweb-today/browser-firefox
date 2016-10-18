@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #fluxbox -display $DISPLAY -log /tmp/fluxbox.log &
-jwm -display $DISPLAY &
+run_browser jwm -display $DISPLAY &
 
 sudo chown browser:browser /home/browser/ffprofile
 
