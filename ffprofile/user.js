@@ -23,6 +23,7 @@ user_pref("datareporting.healthreport.uploadEnabled", false);
 user_pref("datareporting.policy.dataSubmissionEnabled", false);
 
 user_pref("dom.disable_open_during_load", false);
+user_pref("dom.ipc.plugins.java.enabled", true);
 
 user_pref("extensions.blocklist.enabled", false);
 user_pref("extensions.getAddons.cache.enabled", false);
@@ -31,6 +32,8 @@ user_pref("geo.enabled", false);
 
 user_pref("media.gmp-provider.enabled", false);
 user_pref("media.gmp-manager.url", "");
+
+user_pref("plugin.state.java", 2);
 
 user_pref("privacy.trackingprotection.enabled", false);
 user_pref("privacy.trackingprotection.introURL", "");
