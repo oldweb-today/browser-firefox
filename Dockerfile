@@ -1,4 +1,4 @@
-FROM webrecorder/base-browser
+FROM oldwebtoday/base-browser:latest
 
 RUN apt-get update && apt-get install -y \
     libgtk-3-0 libasound2 libdbus-glib-1-2 libnss3-tools \
