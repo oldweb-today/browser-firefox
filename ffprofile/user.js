@@ -34,6 +34,7 @@ user_pref("media.gmp-provider.enabled", false);
 user_pref("media.gmp-manager.url", "");
 
 user_pref("plugin.state.java", 2);
+user_pref("plugin.state.flash", 2);
 
 user_pref("privacy.trackingprotection.enabled", false);
 user_pref("privacy.trackingprotection.introURL", "");

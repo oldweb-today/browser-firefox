@@ -1,0 +1,42 @@
+version: '3.3'
+
+services:
+   firefox_49:
+      image: 'oldwebtoday/firefox:49'
+      build:
+        context: .
+        args:
+            FF_VERSION: "49.0.1"
+
+        labels:
+            "wr.version": "49"
+            "wr.release": "2016-09-23"
+            "wr.caps.flash": "1"
+            "wr.caps.java": "1"
+ 
+   firefox_56:
+      image: 'oldwebtoday/firefox:56'
+      build:
+        context: .
+        args:
+            FF_VERSION: "56.0.2"
+
+        labels:
+            "wr.version": "56"
+            "wr.release": "2017-10-25"
+            "wr.caps.flash": "1"
+
+   firefox_57:
+      image: 'oldwebtoday/firefox:57'
+      build:
+        context: .
+        args:
+            FF_VERSION: "57.0b14"
+
+        labels:
+            "wr.version": "57"
+            "wr.release": "2017-11-03"
+            "wr.caps.flash": "1"
+
+
+
