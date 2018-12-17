@@ -1,8 +1,10 @@
-FROM oldwebtoday/base-browser:latest
+FROM oldwebtoday/base-browser
 
 WORKDIR /download
 
 ARG FF_VERSION
+
+USER root
 
 RUN wget https://download-installer.cdn.mozilla.net/pub/firefox/releases/$FF_VERSION/linux-x86_64/en-US/firefox-$FF_VERSION.tar.bz2 && \
     tar xvf firefox-$FF_VERSION.tar.bz2
@@ -16,6 +18,7 @@ RUN apt-get -y update && \
     adobe-flashplugin software-properties-common && \
     rm -rf /var/lib/apt/lists/*
 
+ADD java/oracle-java6-installer.deb /tmp/
 ADD java/jdk-6u45-linux-x64.bin /var/cache/oracle-jdk6-installer/
 
 ADD install.sh /download/
@@ -35,7 +38,7 @@ RUN sudo chmod a+x /app/run.sh
 
 #RUN sudo ln -s /etc/fonts/conf.avail/10-autohint.conf /etc/fonts/conf.d/
 
-CMD /app/entry_point.sh /app/run.sh
+CMD ["/app/run.sh"]
 
 LABEL wr.name="Firefox" \
       wr.os="linux" \

@@ -1,7 +1,6 @@
 #!/bin/bash
 
-#fluxbox -display $DISPLAY -log /tmp/fluxbox.log &
-run_browser jwm -display $DISPLAY &
+run_forever jwm -display $DISPLAY &
 
 sudo chown browser:browser /home/browser/ffprofile
 
@@ -21,5 +20,5 @@ if [[ -n "$PROXY_HOST" ]]; then
     fi
 fi
 
-run_browser /opt/firefox/firefox --profile /home/browser/ffprofile -setDefaultBrowser --new-window "$URL"
+run_forever /opt/firefox/firefox --profile /home/browser/ffprofile -setDefaultBrowser --new-window "$URL"
 
