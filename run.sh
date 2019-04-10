@@ -1,6 +1,12 @@
 #!/bin/bash
 
-run_forever jwm -display $DISPLAY &
+if xhost >& /dev/null; then
+  run_forever jwm -display "$DISPLAY" &
+
+  HEADLESS=""
+else
+  HEADLESS="-headless"
+fi
 
 sudo chown browser:browser /home/browser/ffprofile
 
@@ -13,12 +19,10 @@ if [[ -n "$PROXY_HOST" ]]; then
     sed -i s/'$PROXY_PORT'/$PROXY_PORT/g ~/proxy.js
     cat ~/proxy.js >> ~/ffprofile/user.js
 
-    if [[ -n "$PROXY_GET_CA" ]]; then
-        curl -x "$PROXY_HOST:$PROXY_PORT"  "$PROXY_GET_CA" > /tmp/proxy-ca.pem
-
-        certutil -A -n "Proxy" -t "TCu,Cuw,Tuw" -i /tmp/proxy-ca.pem -d /home/browser/ffprofile
+    if [[ -n "$PROXY_CA_FILE" ]]; then
+        certutil -A -n "Proxy" -t "TCu,Cuw,Tuw" -i "$PROXY_CA_FILE" -d /home/browser/ffprofile
     fi
 fi
 
-run_forever /opt/firefox/firefox --profile /home/browser/ffprofile -setDefaultBrowser --new-window "$URL"
+run_forever /opt/firefox/firefox "$HEADLESS" --profile /home/browser/ffprofile -setDefaultBrowser --new-window "$URL"
 

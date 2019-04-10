@@ -16,6 +16,7 @@ user_pref("browser.search.geoSpecificDefaults.url", "");
 user_pref("browser.startup.homepage_override.mstone", "ignore");
 user_pref("browser.newtabpage.directory.ping", "");
 user_pref("browser.newtabpage.directory.source", "");
+user_pref("browser.tabs.remote.autostart", false);
 
 user_pref("datareporting.healthreport.service.enabled", false);
 user_pref("datareporting.healthreport.service.firstRun", false);
@@ -27,6 +28,7 @@ user_pref("dom.ipc.plugins.java.enabled", true);
 
 user_pref("extensions.blocklist.enabled", false);
 user_pref("extensions.getAddons.cache.enabled", false);
+user_pref("extensions.shield-recipe-client.enabled", false);
 
 user_pref("geo.enabled", false);
 
