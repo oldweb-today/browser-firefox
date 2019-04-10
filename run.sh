@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if xhost >& /dev/null; then
+if [[ -n "$DISPLAY" ]]; then
   run_forever jwm -display "$DISPLAY" &
 
   HEADLESS=""
@@ -19,10 +19,10 @@ if [[ -n "$PROXY_HOST" ]]; then
     sed -i s/'$PROXY_PORT'/$PROXY_PORT/g ~/proxy.js
     cat ~/proxy.js >> ~/ffprofile/user.js
 
-    if [[ -n "$PROXY_CA_FILE" ]]; then
+    if [[ -n "$PROXY_CA_FILE" && -f "$PROXY_CA_FILE" ]]; then
         certutil -A -n "Proxy" -t "TCu,Cuw,Tuw" -i "$PROXY_CA_FILE" -d /home/browser/ffprofile
     fi
 fi
 
-run_forever /opt/firefox/firefox "$HEADLESS" --profile /home/browser/ffprofile -setDefaultBrowser --new-window "$URL"
+run_forever /opt/firefox/firefox $HEADLESS -profile /home/browser/ffprofile -setDefaultBrowser -new-window "$URL"
 
