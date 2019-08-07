@@ -15,7 +15,7 @@ ADD flash.list /etc/apt/sources.list.d/flash.list
 RUN apt-get -y update && \
     apt-get install -qqy \
     libgtk-3-0 libasound2 libdbus-glib-1-2 libnss3-tools \
-    adobe-flashplugin software-properties-common && \
+    adobe-flashplugin software-properties-common libavcodec-extra && \
     rm -rf /var/lib/apt/lists/*
 
 ADD java/oracle-java6-installer.deb /tmp/

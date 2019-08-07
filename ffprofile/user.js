@@ -32,6 +32,14 @@ user_pref("extensions.shield-recipe-client.enabled", false);
 
 user_pref("geo.enabled", false);
 
+user_pref("media.autoplay.enabled", true);
+user_pref("media.autoplay.default", 0);
+user_pref("media.autoplay.ask-permission", false);
+user_pref("media.autoplay.enabled.user-gestures-needed", false);
+user_pref("media.autoplay.block-autoplay-until-in-foreground", false);
+
+user_pref("media.ffmpeg.enabled", true);
+
 user_pref("media.gmp-provider.enabled", false);
 user_pref("media.gmp-manager.url", "");
 

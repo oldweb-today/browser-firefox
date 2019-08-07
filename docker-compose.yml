@@ -49,6 +49,7 @@ services:
             "wr.version": "68"
             "wr.release": "2019-07-09"
             "wr.caps.flash": "1"
+            "wr.caps.autopilot": "1"
 
 
 
