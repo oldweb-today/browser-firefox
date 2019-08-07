@@ -31,11 +31,23 @@ services:
       build:
         context: .
         args:
-            FF_VERSION: "57.0b14"
+            FF_VERSION: "57.0.4"
 
         labels:
             "wr.version": "57"
             "wr.release": "2017-11-03"
+            "wr.caps.flash": "1"
+
+   firefox_68:
+      image: 'oldwebtoday/firefox:68'
+      build:
+        context: .
+        args:
+            FF_VERSION: "68.0.1esr"
+
+        labels:
+            "wr.version": "68"
+            "wr.release": "2019-07-09"
             "wr.caps.flash": "1"
 
 
